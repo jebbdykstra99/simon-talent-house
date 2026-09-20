@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Simon Talent House is a global house of opportunity spanning executive search, global talent, AI-enabled role design and early-career programs.">
+  <title>Simon Talent House | The global house of opportunity</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%231d2a2d'/%3E%3Cpath d='M44 18c-4-3-9-5-14-5-8 0-14 4-14 10 0 14 30 7 30 22 0 6-6 10-15 10-6 0-12-2-16-6' fill='none' stroke='%239fdde0' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+  <style>
+    :root{--ink:#172326;--char:#223236;--aqua:#a9e2e3;--aqua2:#dff5f3;--gold:#c49b57;--paper:#f7f5ef;--white:#fff;--line:rgba(23,35,38,.17)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.6 'DM Sans',sans-serif;overflow-x:hidden}a{color:inherit;text-decoration:none}button{font:inherit}
+    .grain{position:fixed;inset:0;pointer-events:none;opacity:.035;z-index:20;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.65'/%3E%3C/svg%3E")}
+    nav{position:absolute;z-index:10;top:0;left:0;width:100%;display:flex;align-items:center;justify-content:space-between;padding:28px 5vw;color:var(--white)}
+    .brand{font:700 17px/1 'Manrope';letter-spacing:.17em}.brand small{display:block;font-size:8px;letter-spacing:.3em;margin-top:7px;color:var(--aqua)}
+    .navlinks{display:flex;gap:28px;align-items:center;font-size:14px}.navlinks>a:not(.pill){opacity:.78}.navlinks>a:hover{opacity:1}
+    .pill{display:inline-flex;align-items:center;justify-content:center;border:1px solid currentColor;border-radius:100px;padding:10px 19px;font-weight:600;transition:.25s}.pill:hover{background:var(--aqua);color:var(--ink);border-color:var(--aqua)}
+    .hero{min-height:100svh;background:var(--ink);color:#fff;position:relative;display:grid;align-items:center;overflow:hidden;padding:130px 5vw 60px}
+    .hero-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0}.hero:after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(18,29,32,.98) 0%,rgba(18,29,32,.91) 32%,rgba(18,29,32,.34) 58%,rgba(18,29,32,.04) 100%)}
+    .rings{display:none}
+    .hero-inner{position:relative;z-index:2;width:min(650px,50vw)}.eyebrow{text-transform:uppercase;letter-spacing:.22em;font-size:12px;color:var(--aqua);font-weight:600;margin-bottom:22px}.hero h1{font:500 clamp(3.3rem,6.4vw,7rem)/.92 'Manrope';letter-spacing:-.065em;margin:0;max-width:700px}.hero h1 span{color:var(--aqua)}
+    .hero-foot{display:block;margin-top:34px}.hero-copy{max-width:590px;font-size:clamp(1.05rem,1.45vw,1.25rem);color:rgba(255,255,255,.76);margin:0}.hero-actions{display:flex;justify-content:flex-start;gap:12px;flex-wrap:wrap;margin-top:28px}.sound{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(255,255,255,.35);background:rgba(18,29,32,.32);color:#fff;border-radius:100px;padding:12px 18px;cursor:pointer;transition:.25s;backdrop-filter:blur(8px)}.sound:hover{border-color:var(--aqua)}.sound[aria-pressed="true"]{background:rgba(169,226,227,.12);border-color:var(--aqua)}.sound-icon{font-size:12px;color:var(--aqua)}
+    .portal-key{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:35px;max-width:610px}.portal-key a{display:flex;align-items:center;gap:10px;padding:10px 13px;border:1px solid rgba(216,230,232,.24);background:rgba(18,29,32,.35);backdrop-filter:blur(10px);font:600 11px/1.25 'Manrope';letter-spacing:.08em;text-transform:uppercase;transition:.25s}.portal-key a:hover{border-color:var(--gold);background:rgba(201,160,74,.14)}.portal-key b{color:var(--gold);font-size:10px}
+    .ticker{background:var(--aqua);padding:17px 0;overflow:hidden;white-space:nowrap;font:600 12px/1 'Manrope';letter-spacing:.16em;text-transform:uppercase}.ticker div{display:inline-block;animation:marquee 24s linear infinite}.ticker span{margin:0 32px}.ticker b{color:var(--gold);margin-right:22px}@keyframes marquee{to{transform:translateX(-50%)}}
+    section{padding:110px 5vw}.intro{display:grid;grid-template-columns:.72fr 1.28fr;gap:8vw;align-items:start}.section-label{font-size:12px;text-transform:uppercase;letter-spacing:.2em;font-weight:700;color:#657276}.intro h2,.future h2,.contact h2{font:500 clamp(2.5rem,5vw,5.7rem)/1.02 'Manrope';letter-spacing:-.05em;margin:0}.intro p{font-size:clamp(1.15rem,2vw,1.6rem);line-height:1.5;margin:0 0 24px;color:#445255}.signature{font:600 13px 'Manrope';letter-spacing:.09em;text-transform:uppercase;margin-top:35px}.signature i{display:block;font:400 14px 'DM Sans';text-transform:none;letter-spacing:0;color:#6a7779;margin-top:5px}
+    .founder{background:var(--aqua2);display:grid;grid-template-columns:minmax(300px,.82fr) minmax(0,1.18fr);gap:8vw;align-items:center;overflow:hidden}.founder-portrait{position:relative;max-width:520px}.founder-portrait:before{content:"";position:absolute;inset:-18px 22px 22px -18px;border:1px solid var(--gold);z-index:0}.founder-portrait img{position:relative;z-index:1;width:100%;display:block;aspect-ratio:4/4.75;object-fit:cover;object-position:50% 16%;filter:saturate(.9) contrast(1.02)}.founder-copy h2{font:500 clamp(2.6rem,5vw,5.2rem)/1 'Manrope';letter-spacing:-.055em;margin:14px 0 30px}.founder-copy>p{font-size:1.07rem;line-height:1.72;color:#435154;margin:0 0 18px;max-width:760px}.founder-quote{margin-top:30px;padding:22px 0 0 25px;border-left:2px solid var(--gold);font:500 clamp(1.35rem,2.3vw,2rem)/1.35 'Manrope';letter-spacing:-.025em;max-width:700px}.founder-title{margin-top:28px;font:600 12px 'Manrope';letter-spacing:.16em;text-transform:uppercase;color:#6a7779}.founder-title span{color:var(--gold);margin:0 8px}
+    .services{background:#fff;padding-top:90px}.services-head{display:flex;justify-content:space-between;align-items:end;border-bottom:1px solid var(--line);padding-bottom:25px}.services-head h2{font:500 clamp(2.3rem,4vw,4rem)/1 'Manrope';letter-spacing:-.05em;margin:0}.services-head p{max-width:420px;margin:0;color:#657276}
+    .service{display:grid;grid-template-columns:90px 1fr 1fr;gap:35px;padding:48px 0;border-bottom:1px solid var(--line);transition:.3s}.service:hover{padding-left:12px;background:linear-gradient(90deg,var(--aqua2),transparent 75%)}.num{font:500 13px 'Manrope';color:var(--gold)}.service h3{font:500 clamp(1.7rem,3vw,2.8rem)/1.12 'Manrope';letter-spacing:-.035em;margin:0}.service p{margin:0;color:#5d696b;max-width:520px}.service a{display:inline-block;margin-top:18px;border-bottom:1px solid var(--ink);font-weight:600;font-size:14px}
+    .future{background:var(--aqua2);display:grid;grid-template-columns:1.15fr .85fr;gap:8vw;align-items:center;position:relative}.future-card{background:var(--ink);color:#fff;padding:45px;border-radius:3px;transform:rotate(2deg);box-shadow:0 24px 70px rgba(23,35,38,.15)}.future-card small{color:var(--aqua);text-transform:uppercase;letter-spacing:.18em}.future-card h3{font:500 2.2rem/1.1 'Manrope';letter-spacing:-.04em;margin:55px 0 25px}.future-card p{color:rgba(255,255,255,.66)}.future-card .stamp{margin-top:48px;border-top:1px solid rgba(255,255,255,.2);padding-top:18px;font-size:13px;letter-spacing:.1em;text-transform:uppercase}.future-copy p{font-size:1.15rem;color:#4c5b5e;margin:30px 0}.text-link{font-weight:600;border-bottom:1px solid;padding-bottom:5px}
+    .proof{background:var(--gold);color:var(--ink);display:grid;grid-template-columns:repeat(3,1fr);gap:1px;padding:0}.proof div{padding:65px 5vw;border-right:1px solid rgba(23,35,38,.2)}.proof strong{display:block;font:500 clamp(2.4rem,5vw,4.8rem)/1 'Manrope';letter-spacing:-.06em}.proof span{display:block;margin-top:12px;font-size:14px}
+    .contact{background:var(--ink);color:#fff;text-align:center;min-height:70vh;display:flex;flex-direction:column;justify-content:center;align-items:center}.contact .eyebrow{margin-bottom:25px}.contact h2{max-width:930px}.contact p{color:rgba(255,255,255,.63);font-size:1.15rem;max-width:580px;margin:30px auto}.contact .pill{background:var(--aqua);color:var(--ink);border-color:var(--aqua);padding:15px 26px}.contact .pill:hover{background:#fff;border-color:#fff}
+    footer{background:var(--ink);color:rgba(255,255,255,.55);border-top:1px solid rgba(255,255,255,.13);padding:28px 5vw;display:flex;justify-content:space-between;font-size:13px}.mobile-menu{display:none}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .75s,transform .75s}.reveal.in{opacity:1;transform:none}
+    @media(max-width:780px){nav{padding:22px 22px}.navlinks>a:not(.pill){display:none}.hero{min-height:100svh;padding:120px 22px 48px;align-items:end}.hero-art{inset:72px 0 auto;width:100%;height:auto;object-fit:contain;object-position:center top;opacity:.88;filter:drop-shadow(0 0 24px rgba(196,155,87,.2))}.hero:after{background:linear-gradient(180deg,rgba(18,29,32,.02) 0%,rgba(18,29,32,.08) 24%,rgba(18,29,32,.82) 46%,rgba(18,29,32,.99) 68%)}.hero-inner{width:100%}.hero h1{font-size:clamp(3rem,15vw,4.8rem)}.hero-foot,.intro,.future,.founder{grid-template-columns:1fr}.hero-actions{justify-content:flex-start}.portal-key{grid-template-columns:1fr 1fr}.portal-key a{font-size:10px;padding:9px 10px}section{padding:78px 22px}.intro{gap:35px}.founder{gap:55px}.founder-portrait{max-width:440px;margin:auto}.founder-copy h2{margin-top:12px}.services-head{display:block}.services-head p{margin-top:18px}.service{grid-template-columns:45px 1fr;gap:20px}.service p{grid-column:2}.proof{grid-template-columns:1fr}.proof div{border-right:0;border-bottom:1px solid rgba(23,35,38,.2);padding:40px 22px}.future-card{transform:none;padding:32px}.contact{padding-top:100px;padding-bottom:100px}footer{padding:25px 22px;gap:25px;flex-direction:column}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rings,.ticker div{animation:none}.reveal{opacity:1;transform:none;transition:none}}
+  </style>
+</head>
+<body>
+<div class="grain"></div>
+  <nav>
+    <a class="brand" href="#top">SIMON<small>TALENT HOUSE</small></a>
+    <div class="navlinks"><a href="#about">Our House</a><a href="#founder">Founder</a><a href="#services">What We Do</a><a href="#future">Future Ready Roles</a><a class="pill" href="mailto:hello@lesliesimonrecruiting.com?subject=Let%27s%20build%20what%27s%20next">Start a conversation</a></div>
+  </nav>
+  <main id="top">
+    <header class="hero">
+      <img class="hero-art" src="global-house-of-opportunity.png" alt="An elegant gold line-art globe with four windows of opportunity">
+      <div class="rings"></div>
+      <div class="hero-inner">
+        <div class="eyebrow">The global house of opportunity</div>
+        <h1>Every window opens to <span>what's next.</span></h1>
+        <div class="hero-foot">
+          <p class="hero-copy">One connected world of talent and workforce solutions. Four distinct ways to build stronger teams, expand possibility and prepare your organization for the future.</p>
+          <div class="hero-actions"><a class="pill" href="#services">Enter the house</a><button class="sound" id="sound" aria-pressed="false"><span class="sound-icon">▶</span><span>Play the Simon theme</span></button></div>
+          <div class="portal-key" aria-label="Four service windows">
+            <a href="#services"><b>01</b> Executive + Professional Search</a>
+            <a href="#services"><b>02</b> Global Talent Solutions</a>
+            <a href="#future"><b>03</b> Future Ready Roles</a>
+            <a href="#services"><b>04</b> Early Career Programs</a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="ticker" aria-hidden="true"><div><span><b>◆</b>Executive Search</span><span><b>◆</b>Global Talent Solutions</span><span><b>◆</b>Future Ready Roles</span><span><b>◆</b>Early Career Programs</span><span><b>◆</b>Executive Search</span><span><b>◆</b>Global Talent Solutions</span><span><b>◆</b>Future Ready Roles</span><span><b>◆</b>Early Career Programs</span></div></div>
+
+    <section class="intro" id="about">
+      <div class="section-label reveal">Welcome to the house</div>
+      <div class="reveal">
+        <h2>Not another recruiting firm.</h2>
+        <p>We are a talent and workforce partner built for a changing world. We help organizations find exceptional people, access global capability, redesign work for human + AI collaboration, and develop the next generation of talent.</p>
+        <p>Every engagement begins with the same thing: listening deeply enough to understand not only who you need, but who will thrive.</p>
+        <div class="signature">Founded by Leslie Simon<i>Decades of recruiting, brand and business experience.</i></div>
+      </div>
+    </section>
+
+    <section class="founder" id="founder">
+      <div class="founder-portrait reveal">
+        <img src="leslie-simon-founder.jpeg" alt="Leslie Simon, founder of Simon Talent House">
+      </div>
+      <div class="founder-copy reveal">
+        <div class="section-label">About Leslie Simon</div>
+        <h2>The human judgment behind the house.</h2>
+        <p>Leslie Simon has built her career at the intersection of business, talent and culture. Before moving into recruiting and talent strategy, she worked across merchandising, product design, global licensing and brand partnerships. That firsthand operating experience shaped her understanding of what companies need from their people and sparked her greatest professional passion: connecting organizations with exceptional talent.</p>
+        <p>Today, Leslie partners with entrepreneurial businesses, growing companies and global brands to make critical hires, strengthen leadership and build high-performing teams. Her recruiting experience spans consumer brands, fashion and retail, financial services, professional sports, healthcare and medical devices, technology, sustainability and emerging industries.</p>
+        <p>Beyond search, Leslie has built and scaled university recruiting platforms, internship programs and early-career initiatives. Now, as she experiences the transformation of work firsthand, she brings that same human-centered perspective to Future Ready Roles. Her conviction is clear: the human element cannot be replaced, but roles can be thoughtfully redesigned to pair human judgment, creativity and connection with the possibilities of AI.</p>
+        <div class="founder-quote">“The right hire does more than fill a role. It changes what a company can become.”</div>
+        <div class="founder-title">Simon Talent House <span>·</span> Founder, Leslie Simon</div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="services-head reveal"><h2>Four ways we build.</h2><p>Distinct capabilities. One trusted partner. Every solution is shaped around your business, culture and next chapter.</p></div>
+      <article class="service reveal"><div class="num">01</div><h3>Executive +<br>Professional Search</h3><p>High-touch search for leaders and professionals who fit the role, the culture and the moment. We look beyond the résumé to find the person who will create lasting impact.<br><a href="mailto:hello@lesliesimonrecruiting.com?subject=Executive%20Search">Discuss a search →</a></p></article>
+      <article class="service reveal"><div class="num">02</div><h3>Global Talent<br>Solutions</h3><p>Build high-performing international teams with intention, not simply for cost savings. We connect companies with skilled global talent while protecting quality, communication and cultural fit.<br><a href="mailto:hello@lesliesimonrecruiting.com?subject=Global%20Talent%20Solutions">Explore global talent →</a></p></article>
+      <article class="service reveal"><div class="num">03</div><h3>Future Ready<br>Roles</h3><p>Redesign roles and organizations for meaningful human + AI collaboration. We translate change into practical job descriptions, workflows and workforce structures built for what comes next.<br><a href="#future">See the future-ready approach →</a></p></article>
+      <article class="service reveal"><div class="num">04</div><h3>Early Career +<br>Internship Programs</h3><p>Build a strategic pipeline of emerging talent. From program design and campus strategy to selection and conversion, we turn internships into a genuine business advantage.<br><a href="mailto:hello@lesliesimonrecruiting.com?subject=Early%20Career%20Programs">Build your pipeline →</a></p></article>
+    </section>
+
+    <section class="future" id="future">
+      <div class="future-copy reveal"><div class="section-label">A signature Simon Talent House service</div><h2>The future of work needs a new blueprint.</h2><p>Future Ready Roles helps leaders rethink how work gets done before they simply add AI to yesterday's job descriptions. We define what technology can carry, where human judgment matters most, and how each role can become more valuable.</p><a class="text-link" href="mailto:hello@lesliesimonrecruiting.com?subject=Future%20Ready%20Roles">Explore a pilot for your organization →</a></div>
+      <div class="future-card reveal"><small>Future Ready Roles</small><h3>Human judgment.<br>AI capability.<br>Better work.</h3><p>Role analysis · Future-ready job descriptions · Department blueprints · Interview guides · Change-ready talent strategy</p><div class="stamp">A Simon Talent House offering</div></div>
+    </section>
+
+    <section class="proof">
+      <div class="reveal"><strong>360°</strong><span>business, brand and talent perspective</span></div>
+      <div class="reveal"><strong>4</strong><span>integrated workforce capabilities under one roof</span></div>
+      <div class="reveal"><strong>1:1</strong><span>senior-level attention on every engagement</span></div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="eyebrow reveal">Your next chapter starts here</div>
+      <h2 class="reveal">Let's build what your business needs next.</h2>
+      <p class="reveal">Whether the need is one critical hire or a new way of structuring work, the right conversation can change the trajectory.</p>
+      <a class="pill reveal" href="mailto:hello@lesliesimonrecruiting.com?subject=Let%27s%20build%20what%27s%20next">Start a conversation</a>
+    </section>
+  </main>
+  <footer><span>© 2026 Simon Talent House</span><span>Founded by Leslie Simon · Denver, Colorado</span></footer>
+  <audio id="theme" preload="metadata"><source src="simon-talent-house-theme.mp3" type="audio/mpeg"></audio>
+  <script>
+    const observer=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('in')),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+    const btn=document.getElementById('sound'),track=document.getElementById('theme'),icon=btn.querySelector('.sound-icon'),label=btn.querySelector('span:last-child');
+    function setPlaying(playing){btn.setAttribute('aria-pressed',playing);icon.textContent=playing?'Ⅱ':'▶';label.textContent=playing?'Pause “Built for What’s Next”':'Play the Simon theme'}
+    btn.addEventListener('click',async()=>{if(track.paused){try{await track.play();setPlaying(true)}catch(e){setPlaying(false)}}else{track.pause();setPlaying(false)}});
+    track.addEventListener('ended',()=>{track.currentTime=0;setPlaying(false)});
+  </script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3e3b74dfd65e671',t:'MTc4OTkzNzU2OA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
