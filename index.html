@@ -7,313 +7,64 @@
   <title>Simon Talent House | The global house of opportunity</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%231d2a2d'/%3E%3Cpath d='M44 18c-4-3-9-5-14-5-8 0-14 4-14 10 0 14 30 7 30 22 0 6-6 10-15 10-6 0-12-2-16-6' fill='none' stroke='%239fdde0' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
   <style>
-    :root{
-      --ink:#172326;--char:#223236;--aqua:#a9e2e3;--aqua2:#dff5f3;--gold:#c49b57;--gold-bright:#e8bc5c;--gold-soft:#e0c48a;--sky:#7ed6ee;--paper:#f7f5ef;--white:#fff;--line:rgba(23,35,38,.17);--navy:#07141f;--card:#2a211b;
-      --serif:"Cormorant Garamond",Georgia,serif;
-      --sans:"Montserrat",sans-serif;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.6 var(--sans);overflow-x:hidden}
-    img{max-width:100%;height:auto}
-    a{color:inherit;text-decoration:none}
-    button{font:inherit}
-    :focus-visible{outline:2px solid var(--gold-soft);outline-offset:3px}
+    :root{--ink:#172326;--char:#223236;--aqua:#a9e2e3;--aqua2:#dff5f3;--gold:#c49b57;--paper:#f7f5ef;--white:#fff;--line:rgba(23,35,38,.17)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.6 'DM Sans',sans-serif;overflow-x:hidden}a{color:inherit;text-decoration:none}button{font:inherit}
     .grain{position:fixed;inset:0;pointer-events:none;opacity:.035;z-index:20;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.65'/%3E%3C/svg%3E")}
-
-    .site-header{position:absolute;z-index:40;top:0;left:0;right:0;display:flex;align-items:center;gap:22px;padding:22px clamp(16px,4vw,52px) 16px;color:#fff}
-    .brand{display:flex;align-items:center;gap:12px;color:#fff;flex:0 0 auto}
-    .brand-simon{font-family:var(--serif);font-weight:600;font-size:clamp(28px,3vw,42px);letter-spacing:.12em;line-height:.85}
-    .brand-rule{width:1px;align-self:stretch;background:rgba(255,255,255,.85);margin:3px 0}
-    .brand-house{font-family:var(--sans);font-weight:500;font-size:11px;letter-spacing:.22em;line-height:1.35;text-transform:uppercase}
-    .navlinks{margin-left:auto;display:flex;align-items:center;gap:clamp(16px,2.1vw,30px);font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase}
-    .navlinks a{opacity:.92}
-    .navlinks a:hover{color:var(--gold-bright);opacity:1}
-    .nav-toggle{display:none;width:42px;height:42px;border-radius:999px;border:1px solid rgba(255,255,255,.45);background:rgba(7,20,31,.28);color:#fff;align-items:center;justify-content:center;flex-direction:column;gap:5px;cursor:pointer;padding:0}
-    .nav-toggle span{display:block;width:16px;height:1.5px;background:#fff;transition:transform .2s,opacity .2s}
-    .nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
-    .nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
-    .nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
-
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 22px;border-radius:999px;font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;line-height:1;white-space:nowrap;cursor:pointer;border:1.5px solid transparent;transition:background .2s,border-color .2s,color .2s}
-    .btn svg,.window-arrow svg{display:block;width:16px;height:16px}
-    .window-arrow svg{width:20px;height:20px}
-    .arrow{display:inline-block;width:.85em;height:.85em;margin-left:.28em;vertical-align:-.08em;background:currentColor;-webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path d='M3 10h12M11 4.5 16.5 10 11 15.5' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/></svg>") center/contain no-repeat;mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path d='M3 10h12M11 4.5 16.5 10 11 15.5' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/></svg>") center/contain no-repeat}
-    .btn-gold{background:var(--gold-bright);color:#1c1408;border-color:var(--gold-bright)}
-    .btn-gold:hover{background:#f3cd7a;border-color:#f3cd7a}
-    .btn-outline{background:rgba(8,18,28,.28);color:#fff;border-color:rgba(255,255,255,.75);backdrop-filter:blur(8px)}
-    .btn-outline:hover{background:rgba(255,255,255,.12);border-color:#fff}
-    .btn-outline[aria-pressed="true"]{border-color:var(--sky);background:rgba(126,214,238,.14)}
-    .sound-icon{display:inline-flex;width:14px;height:14px}
-    .sound-icon svg{display:block;width:14px;height:14px}
-    .icon-pause{display:none}
-    .btn-outline[aria-pressed="true"] .icon-play{display:none}
-    .btn-outline[aria-pressed="true"] .icon-pause{display:inline-flex}
-
-    .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;color:#fff;padding:118px clamp(18px,4vw,56px) 28px;background:linear-gradient(180deg,#07131c 0%,#07131c 42%,#1a120c 100%);overflow:hidden}
-    .hero-backdrop{position:absolute;inset:0 0 auto 0;height:100%;max-height:1200px;z-index:0}
-    .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 32%}
-    .hero-scrim{position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,16,26,.62) 0%,rgba(6,16,26,.38) 34%,rgba(6,16,26,.12) 54%,rgba(6,16,26,0) 70%),linear-gradient(180deg,rgba(6,16,26,.5) 0%,rgba(6,16,26,.08) 22%,rgba(6,16,26,0) 48%)}
-    .hero-copy{position:relative;z-index:2;width:min(740px,100%);padding-top:8px}
-    .hero .eyebrow{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;max-width:100%;margin:0 0 18px;color:var(--gold-soft);font-weight:500;letter-spacing:.26em;font-size:12px;text-transform:uppercase}
-    .hero .eyebrow-text{flex:0 1 auto;min-width:0;max-width:100%}
-    .hero .eyebrow:after{content:"";height:1px;flex:1 1 48px;min-width:0;max-width:220px;background:var(--gold-soft);opacity:.9}
-    .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(2.8rem,5.35vw,5.55rem);line-height:.96;letter-spacing:-.015em;margin:0;text-transform:none;color:#fff;text-shadow:0 2px 22px rgba(0,0,0,.35)}
-    .hero h1 .line{display:block}
-    .hero h1 .accent{display:block;color:var(--sky)}
-    .hero-sub{max-width:38rem;margin:22px 0 0;font-size:clamp(15px,1.15vw,17px);line-height:1.6;color:rgba(255,255,255,.92);text-shadow:0 1px 12px rgba(0,0,0,.35)}
-    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-    .windows{position:relative;z-index:2;margin-top:auto;padding-top:36px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
-    .window{display:flex;flex-direction:column;min-width:0;height:100%;color:#fff;background:linear-gradient(165deg,#f0d7ae 0%,#c79a5c 16%,#a67c45 48%,#e8c98f 78%,#8b5e34 100%);padding:8px;box-shadow:0 18px 40px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,248,230,.55);transition:transform .25s ease,box-shadow .25s ease}
-    .window:hover{transform:translateY(-4px);box-shadow:0 26px 48px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,248,230,.55)}
-    .window-photo{display:block;aspect-ratio:16/10;overflow:hidden;background:#10202c;line-height:0}
-    .window-photo picture,.window-photo img{display:block;width:100%;height:100%;object-fit:cover}
-    .window-card{flex:1;display:flex;align-items:center;gap:12px;margin-top:8px;padding:14px 14px 16px;background:var(--card);border-top:1px solid rgba(232,188,92,.45)}
-    .window-copy{display:flex;flex-direction:column;min-width:0;flex:1}
-    .window-num{display:block;margin:0 0 6px;font-size:11px;letter-spacing:.16em;color:rgba(255,255,255,.72)}
-    .window-title{display:block;margin:0;font-family:var(--serif);font-weight:600;font-size:clamp(1.45rem,1.6vw,1.85rem);line-height:1.05;letter-spacing:-.01em}
-    .window-text{display:block;margin:8px 0 0;font-size:12.5px;line-height:1.45;color:rgba(255,255,255,.84)}
-    .window-arrow{flex:0 0 auto;color:var(--gold-bright);line-height:0}
-
-    .pill{display:inline-flex;align-items:center;justify-content:center;border:1px solid currentColor;border-radius:100px;padding:10px 19px;font-weight:600;transition:.25s;text-transform:uppercase}
-    .pill:hover{background:var(--aqua);color:var(--ink);border-color:var(--aqua)}
-    .eyebrow{text-transform:uppercase;letter-spacing:.22em;font-size:12px;color:var(--aqua);font-weight:600;margin-bottom:22px}
-    .ticker{background:var(--aqua);padding:17px 0;overflow:hidden;white-space:nowrap;font:600 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase}
-    .ticker div{display:inline-block;animation:marquee 24s linear infinite}
-    .ticker span{margin:0 32px}
-    .ticker b{color:var(--gold);margin-right:22px}
-    @keyframes marquee{to{transform:translateX(-50%)}}
-    section{padding:110px 5vw}
-    .intro{display:grid;grid-template-columns:.72fr 1.28fr;gap:8vw;align-items:start}
-    .section-label{font-size:12px;text-transform:uppercase;letter-spacing:.2em;font-weight:700;color:#657276}
-    .intro h2,.future h2,.contact h2{font:500 clamp(2.5rem,5vw,5.7rem)/1.02 var(--sans);letter-spacing:-.05em;margin:0;text-transform:uppercase}
-    .intro p{font-size:clamp(1.15rem,2vw,1.6rem);line-height:1.5;margin:0 0 24px;color:#445255}
-    .signature{font:600 13px var(--sans);letter-spacing:.09em;text-transform:uppercase;margin-top:35px}
-    .signature i{display:block;font:400 14px var(--sans);text-transform:none;letter-spacing:0;color:#6a7779;margin-top:5px}
-    .founder{background:var(--aqua2);display:grid;grid-template-columns:minmax(300px,.82fr) minmax(0,1.18fr);gap:8vw;align-items:center;overflow:hidden}
-    .founder-portrait{position:relative;max-width:520px}
-    .founder-portrait:before{content:"";position:absolute;inset:-18px 22px 22px -18px;border:1px solid var(--gold);z-index:0}
-    .founder-portrait img{position:relative;z-index:1;width:100%;display:block;aspect-ratio:4/4.75;object-fit:cover;object-position:50% 16%;filter:saturate(.9) contrast(1.02)}
-    .founder-copy h2{font:500 clamp(2.6rem,5vw,5.2rem)/1 var(--sans);letter-spacing:-.055em;margin:14px 0 30px;text-transform:uppercase}
-    .founder-copy>p{font-size:1.07rem;line-height:1.72;color:#435154;margin:0 0 18px;max-width:760px}
-    .founder-quote{margin-top:30px;padding:22px 0 0 25px;border-left:2px solid var(--gold);font:500 clamp(1.45rem,2.4vw,2.15rem)/1.3 var(--serif);letter-spacing:-.01em;max-width:700px}
-    .founder-title{margin-top:28px;font:600 12px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:#6a7779}
-    .services{background:#fff;padding-top:90px}
-    .services-head{display:flex;justify-content:space-between;align-items:end;border-bottom:1px solid var(--line);padding-bottom:25px}
-    .services-head h2{font:500 clamp(2.3rem,4vw,4rem)/1 var(--sans);letter-spacing:-.05em;margin:0;text-transform:uppercase}
-    .services-head p{max-width:420px;margin:0;color:#657276}
-    .service{display:grid;grid-template-columns:1fr 1fr;gap:35px;padding:48px 0;border-bottom:1px solid var(--line);transition:.3s}
-    .service:hover{padding-left:12px;background:linear-gradient(90deg,var(--aqua2),transparent 75%)}
-    .service h3{font:500 clamp(1.7rem,3vw,2.8rem)/1.12 var(--sans);letter-spacing:-.035em;margin:0;text-transform:uppercase}
-    .service p{margin:0;color:#5d696b;max-width:520px}
-    .service a{display:inline-block;margin-top:18px;border-bottom:1px solid var(--ink);font-weight:600;font-size:14px}
-    .future{background:var(--aqua2);display:grid;grid-template-columns:1.15fr .85fr;gap:8vw;align-items:center;position:relative}
-    .future-card{background:var(--ink);color:#fff;padding:45px;border-radius:3px;transform:rotate(2deg);box-shadow:0 24px 70px rgba(23,35,38,.15)}
-    .future-card small{color:var(--aqua);text-transform:uppercase;letter-spacing:.18em}
-    .future-card h3{font:500 2.2rem/1.1 var(--sans);letter-spacing:-.04em;margin:55px 0 25px;text-transform:uppercase}
-    .future-card p{color:rgba(255,255,255,.66);text-transform:uppercase}
-    .future-card .stamp{margin-top:48px;border-top:1px solid rgba(255,255,255,.2);padding-top:18px;font-size:13px;letter-spacing:.1em;text-transform:uppercase}
-    .future-copy p{font-size:1.15rem;color:#4c5b5e;margin:30px 0;text-transform:uppercase}
-    .text-link{font-weight:600;border-bottom:1px solid;padding-bottom:5px;text-transform:uppercase}
-    .proof{background:var(--gold);color:var(--ink);display:grid;grid-template-columns:repeat(3,1fr);gap:1px;padding:0}
-    .proof div{padding:65px 5vw;border-right:1px solid rgba(23,35,38,.2)}
-    .proof strong{display:block;font:500 clamp(2.4rem,5vw,4.8rem)/1 var(--sans);letter-spacing:-.06em}
-    .proof span{display:block;margin-top:12px;font-size:14px}
-    .contact{background:var(--ink);color:#fff;text-align:center;min-height:70vh;display:flex;flex-direction:column;justify-content:center;align-items:center}
-    .contact .eyebrow{margin-bottom:25px}
-    .contact h2{max-width:930px;text-transform:uppercase;font-family:var(--serif);font-weight:600;letter-spacing:-.005em}
-    .contact p{color:rgba(255,255,255,.63);font-size:1.15rem;max-width:580px;margin:30px auto}
-    .contact .pill{background:var(--aqua);color:var(--ink);border-color:var(--aqua);padding:15px 26px}
-    .contact .pill:hover{background:#fff;border-color:#fff}
-    footer{background:var(--ink);color:rgba(255,255,255,.55);border-top:1px solid rgba(255,255,255,.13);padding:28px 5vw;display:flex;justify-content:space-between;font-size:13px}
+    nav{position:absolute;z-index:30;top:0;left:0;width:100%;display:flex;align-items:center;justify-content:space-between;padding:28px 5vw;color:var(--white);background:linear-gradient(180deg,rgba(18,29,32,.92) 0%,rgba(18,29,32,.55) 70%,rgba(18,29,32,0) 100%);padding-bottom:48px}
+    .brand{font:700 17px/1 'Manrope';letter-spacing:.17em}.brand small{display:block;font-size:8px;letter-spacing:.3em;margin-top:7px;color:var(--aqua)}
+    .navlinks{display:flex;gap:28px;align-items:center;font-size:14px}.navlinks>a:not(.pill){opacity:.78}.navlinks>a:hover{opacity:1}
+    .pill{display:inline-flex;align-items:center;justify-content:center;border:1px solid currentColor;border-radius:100px;padding:10px 19px;font-weight:600;transition:.25s;text-transform:uppercase}.pill:hover{background:var(--aqua);color:var(--ink);border-color:var(--aqua)}
+    .hero{min-height:100svh;background:var(--ink);color:#fff;position:relative;display:grid;align-items:center;overflow:hidden;padding:130px 5vw 60px}
+    .hero-art{position:absolute;top:88px;right:0;bottom:0;left:0;width:100%;height:auto;max-height:calc(100% - 88px);object-fit:contain;object-position:right center;z-index:0}.hero:after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(18,29,32,.98) 0%,rgba(18,29,32,.91) 32%,rgba(18,29,32,.34) 58%,rgba(18,29,32,.04) 100%)}
+    .rings{display:none}
+    .hero-inner{position:relative;z-index:2;width:min(650px,50vw)}.eyebrow{text-transform:uppercase;letter-spacing:.22em;font-size:12px;color:var(--aqua);font-weight:600;margin-bottom:22px}.hero h1{font:500 clamp(3.3rem,6.4vw,7rem)/.92 'Manrope';letter-spacing:-.065em;margin:0;max-width:700px;text-transform:uppercase}.hero h1 span{color:var(--aqua)}
+    .hero-foot{display:block;margin-top:34px}.hero-copy{max-width:590px;font-size:clamp(1.05rem,1.45vw,1.25rem);color:rgba(255,255,255,.76);margin:0}.hero-actions{display:flex;justify-content:flex-start;gap:12px;flex-wrap:wrap;margin-top:28px}.sound{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(255,255,255,.35);background:rgba(18,29,32,.32);color:#fff;border-radius:100px;padding:12px 18px;cursor:pointer;transition:.25s;backdrop-filter:blur(8px)}.sound:hover{border-color:var(--aqua)}.sound[aria-pressed="true"]{background:rgba(169,226,227,.12);border-color:var(--aqua)}.sound-icon{font-size:12px;color:var(--aqua)}
+    .portal-key{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:35px;max-width:610px}.portal-key a{display:flex;align-items:center;gap:10px;padding:10px 13px;border:1px solid rgba(216,230,232,.24);background:rgba(18,29,32,.35);backdrop-filter:blur(10px);font:600 11px/1.25 'Manrope';letter-spacing:.08em;text-transform:uppercase;transition:.25s}.portal-key a:hover{border-color:var(--gold);background:rgba(201,160,74,.14)}.portal-key b{color:var(--gold);font-size:10px}
+    .ticker{background:var(--aqua);padding:17px 0;overflow:hidden;white-space:nowrap;font:600 12px/1 'Manrope';letter-spacing:.16em;text-transform:uppercase}.ticker div{display:inline-block;animation:marquee 24s linear infinite}.ticker span{margin:0 32px}.ticker b{color:var(--gold);margin-right:22px}@keyframes marquee{to{transform:translateX(-50%)}}
+    section{padding:110px 5vw}.intro{display:grid;grid-template-columns:.72fr 1.28fr;gap:8vw;align-items:start}.section-label{font-size:12px;text-transform:uppercase;letter-spacing:.2em;font-weight:700;color:#657276}.intro h2,.future h2,.contact h2{font:500 clamp(2.5rem,5vw,5.7rem)/1.02 'Manrope';letter-spacing:-.05em;margin:0;text-transform:uppercase}.intro p{font-size:clamp(1.15rem,2vw,1.6rem);line-height:1.5;margin:0 0 24px;color:#445255}.signature{font:600 13px 'Manrope';letter-spacing:.09em;text-transform:uppercase;margin-top:35px}.signature i{display:block;font:400 14px 'DM Sans';text-transform:none;letter-spacing:0;color:#6a7779;margin-top:5px}
+    .founder{background:var(--aqua2);display:grid;grid-template-columns:minmax(300px,.82fr) minmax(0,1.18fr);gap:8vw;align-items:center;overflow:hidden}.founder-portrait{position:relative;max-width:520px}.founder-portrait:before{content:"";position:absolute;inset:-18px 22px 22px -18px;border:1px solid var(--gold);z-index:0}.founder-portrait img{position:relative;z-index:1;width:100%;display:block;aspect-ratio:4/4.75;object-fit:cover;object-position:50% 16%;filter:saturate(.9) contrast(1.02)}.founder-copy h2{font:500 clamp(2.6rem,5vw,5.2rem)/1 'Manrope';letter-spacing:-.055em;margin:14px 0 30px;text-transform:uppercase}.founder-copy>p{font-size:1.07rem;line-height:1.72;color:#435154;margin:0 0 18px;max-width:760px}.founder-quote{margin-top:30px;padding:22px 0 0 25px;border-left:2px solid var(--gold);font:500 clamp(1.35rem,2.3vw,2rem)/1.35 'Manrope';letter-spacing:-.025em;max-width:700px}.founder-title{margin-top:28px;font:600 12px 'Manrope';letter-spacing:.16em;text-transform:uppercase;color:#6a7779}
+    .services{background:#fff;padding-top:90px}.services-head{display:flex;justify-content:space-between;align-items:end;border-bottom:1px solid var(--line);padding-bottom:25px}.services-head h2{font:500 clamp(2.3rem,4vw,4rem)/1 'Manrope';letter-spacing:-.05em;margin:0;text-transform:uppercase}.services-head p{max-width:420px;margin:0;color:#657276}
+    .service{display:grid;grid-template-columns:1fr 1fr;gap:35px;padding:48px 0;border-bottom:1px solid var(--line);transition:.3s}.service:hover{padding-left:12px;background:linear-gradient(90deg,var(--aqua2),transparent 75%)}.num{display:none;font:500 13px 'Manrope';color:var(--gold)}.service h3{font:500 clamp(1.7rem,3vw,2.8rem)/1.12 'Manrope';letter-spacing:-.035em;margin:0;text-transform:uppercase}.service p{margin:0;color:#5d696b;max-width:520px}.service a{display:inline-block;margin-top:18px;border-bottom:1px solid var(--ink);font-weight:600;font-size:14px}
+    .future{background:var(--aqua2);display:grid;grid-template-columns:1.15fr .85fr;gap:8vw;align-items:center;position:relative}.future-card{background:var(--ink);color:#fff;padding:45px;border-radius:3px;transform:rotate(2deg);box-shadow:0 24px 70px rgba(23,35,38,.15)}.future-card small{color:var(--aqua);text-transform:uppercase;letter-spacing:.18em}.future-card h3{font:500 2.2rem/1.1 'Manrope';letter-spacing:-.04em;margin:55px 0 25px;text-transform:uppercase}.future-card p{color:rgba(255,255,255,.66);text-transform:uppercase}.future-card .stamp{margin-top:48px;border-top:1px solid rgba(255,255,255,.2);padding-top:18px;font-size:13px;letter-spacing:.1em;text-transform:uppercase}.future-copy p{font-size:1.15rem;color:#4c5b5e;margin:30px 0;text-transform:uppercase}.text-link{font-weight:600;border-bottom:1px solid;padding-bottom:5px;text-transform:uppercase}
+    .proof{background:var(--gold);color:var(--ink);display:grid;grid-template-columns:repeat(3,1fr);gap:1px;padding:0}.proof div{padding:65px 5vw;border-right:1px solid rgba(23,35,38,.2)}.proof strong{display:block;font:500 clamp(2.4rem,5vw,4.8rem)/1 'Manrope';letter-spacing:-.06em}.proof span{display:block;margin-top:12px;font-size:14px}
+    .contact{background:var(--ink);color:#fff;text-align:center;min-height:70vh;display:flex;flex-direction:column;justify-content:center;align-items:center}.contact .eyebrow{margin-bottom:25px}.contact h2{max-width:930px;text-transform:uppercase;font-family:var(--serif);font-weight:600;letter-spacing:-.005em}.contact p{color:rgba(255,255,255,.63);font-size:1.15rem;max-width:580px;margin:30px auto}.contact .pill{background:var(--aqua);color:var(--ink);border-color:var(--aqua);padding:15px 26px}.contact .pill:hover{background:#fff;border-color:#fff}
+    footer{background:var(--ink);color:rgba(255,255,255,.55);border-top:1px solid rgba(255,255,255,.13);padding:28px 5vw;display:flex;justify-content:space-between;font-size:13px}.mobile-menu{display:none}
     .nowrap{white-space:nowrap}
-    .founder-title span{color:var(--gold);margin:0 8px}
-    .founder-title .nowrap{color:inherit;margin:0}
-    .reveal{opacity:0;transform:translateY(24px);transition:opacity .75s,transform .75s}
-    .reveal.in{opacity:1;transform:none}
-
-    @media(max-width:1280px){
-      .site-header{flex-wrap:wrap;row-gap:8px}
-      .navlinks{order:3;flex:1 0 100%;margin-left:0;justify-content:flex-end;gap:18px}
-      .connect{margin-left:auto}
-      .hero{padding-top:148px}
-    }
-    @media(min-width:781px) and (max-width:1100px){
-      .navlinks{font-size:11px}
-      section{padding:90px 4vw}
-      .intro,.future{gap:5vw}
-      .founder{gap:4.5vw;grid-template-columns:minmax(240px,.72fr) minmax(0,1.28fr)}
-      .founder-title{letter-spacing:.12em}
-      .service{gap:24px;grid-template-columns:1fr 1fr}
-      .future-card{padding:36px}
-      .future-card h3{font-size:1.85rem}
-      .proof div{padding:55px 4vw}
-    }
-    @media(max-width:980px){
-      .windows{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-      .hero-backdrop{height:min(78vh,820px)}
-      .hero-backdrop:after{content:"";position:absolute;left:0;right:0;bottom:0;height:120px;background:linear-gradient(180deg,transparent,#1a120c)}
-    }
-    @media(max-width:780px){
-      .nav-toggle{display:inline-flex;margin-left:auto}
-      .connect{margin-left:0}
-      .navlinks{display:none;position:absolute;top:100%;left:0;right:0;margin:0;flex-direction:column;align-items:stretch;gap:0;padding:8px 18px 16px;background:rgba(7,18,28,.97);border-top:1px solid rgba(255,255,255,.08)}
-      .navlinks.is-open{display:flex}
-      .navlinks a{padding:14px 6px;border-bottom:1px solid rgba(255,255,255,.08)}
-      .hero{min-height:0;padding:108px 18px 36px}
-      .hero-backdrop{height:560px}
-      .hero-actions{align-items:flex-start}
-      .windows{grid-template-columns:1fr;padding-top:28px}
-      .intro,.future,.founder{grid-template-columns:1fr}
-      section{padding:78px 22px}
-      .intro{gap:35px}
-      .founder{gap:55px}
-      .founder-portrait{max-width:440px;margin:auto}
-      .founder-copy h2{margin-top:12px}
-      .founder-title{font-size:11px;letter-spacing:.1em}
-      .services-head{display:block}
-      .services-head p{margin-top:18px}
-      .service{grid-template-columns:1fr;gap:16px}
-      .proof{grid-template-columns:1fr}
-      .proof div{border-right:0;border-bottom:1px solid rgba(23,35,38,.2);padding:40px 22px}
-      .future-card{transform:none;padding:32px}
-      .contact{padding-top:100px;padding-bottom:100px}
-      footer{padding:25px 22px;gap:25px;flex-direction:column}
-    }
-    @media(max-width:780px){
-      .hero-scrim{background:linear-gradient(180deg,rgba(6,16,26,.62) 0%,rgba(6,16,26,.42) 34%,rgba(6,16,26,.18) 62%,rgba(6,16,26,.72) 100%),linear-gradient(90deg,rgba(6,16,26,.5),rgba(6,16,26,.22))}
-    }
-    @media(max-width:560px){
-      .hero .eyebrow{letter-spacing:.11em;font-size:10.5px}
-      .hero .eyebrow:after{display:none}
-    }
-    @media(max-width:420px){
-      .site-header{gap:8px;padding:14px 12px}
-      .brand{gap:8px}
-      .brand-simon{font-size:24px;letter-spacing:.08em}
-      .brand-house{font-size:9px;letter-spacing:.14em}
-      .btn{padding:10px 12px;font-size:10px;letter-spacing:.08em}
-    }
-    @media(prefers-reduced-motion:reduce){
-      html{scroll-behavior:auto}
-      .ticker div{animation:none}
-      .reveal{opacity:1;transform:none;transition:none}
-      .window,.window:hover{transition:none;transform:none}
-    }
+    .founder-title span{color:var(--gold);margin:0 8px}.founder-title .nowrap{color:inherit;margin:0}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .75s,transform .75s}.reveal.in{opacity:1;transform:none}
+    @media(min-width:781px) and (max-width:1100px){nav{padding:24px 3.5vw;padding-bottom:44px}.navlinks{gap:14px;font-size:13px}.pill{padding:9px 14px}.hero{padding:120px 4vw 56px}.hero-inner{width:min(560px,54vw)}.hero h1{font-size:clamp(3rem,5.4vw,5.2rem)}.portal-key{max-width:560px}section{padding:90px 4vw}.intro,.future{gap:5vw}.founder{gap:4.5vw;grid-template-columns:minmax(240px,.72fr) minmax(0,1.28fr)}.founder-title{letter-spacing:.12em}.service{gap:24px;grid-template-columns:70px 1fr 1fr}.future-card{padding:36px}.future-card h3{font-size:1.85rem}.proof div{padding:55px 4vw}}
+    @media(max-width:780px){nav{padding:22px 22px}.navlinks>a:not(.pill){display:none}.hero{min-height:100svh;padding:120px 22px 48px;align-items:end}.hero-art{top:88px;right:0;bottom:auto;left:0;inset:auto;width:100%;height:auto;object-fit:contain;object-position:center top;opacity:.88;filter:drop-shadow(0 0 24px rgba(196,155,87,.2))}.hero:after{background:linear-gradient(180deg,rgba(18,29,32,.02) 0%,rgba(18,29,32,.08) 24%,rgba(18,29,32,.82) 46%,rgba(18,29,32,.99) 68%)}.hero-inner{width:100%}.hero h1{font-size:clamp(3rem,15vw,4.8rem)}.hero-foot,.intro,.future,.founder{grid-template-columns:1fr}.hero-actions{justify-content:flex-start}.portal-key{grid-template-columns:1fr 1fr}.portal-key a{font-size:10px;padding:9px 10px}section{padding:78px 22px}.intro{gap:35px}.founder{gap:55px}.founder-portrait{max-width:440px;margin:auto}.founder-copy h2{margin-top:12px}.founder-title{font-size:11px;letter-spacing:.1em}.services-head{display:block}.services-head p{margin-top:18px}.service{grid-template-columns:1fr;gap:16px}.service p{grid-column:1}.proof{grid-template-columns:1fr}.proof div{border-right:0;border-bottom:1px solid rgba(23,35,38,.2);padding:40px 22px}.future-card{transform:none;padding:32px}.contact{padding-top:100px;padding-bottom:100px}footer{padding:25px 22px;gap:25px;flex-direction:column}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rings,.ticker div{animation:none}.reveal{opacity:1;transform:none;transition:none}}
   </style>
 </head>
 <body>
 <div class="grain"></div>
-  <header class="site-header">
-    <a class="brand" href="#top">
-      <span class="brand-simon">SIMON</span>
-      <span class="brand-rule" aria-hidden="true"></span>
-      <span class="brand-house">Talent<br>House</span>
-    </a>
-    <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
-    <nav class="navlinks" id="site-nav" aria-label="Primary">
-      <a href="#services">Solutions</a>
-      <a href="#founder">About</a>
-      <a href="#about">Our Approach</a>
-      <a href="#insights">Insights</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <a class="btn btn-gold connect" href="mailto:hello@lesliesimonrecruiting.com?subject=Inquiry%20to%20Leslie%20Simon">Let's Connect <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h12M11 4.5 16.5 10 11 15.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-  </header>
+  <nav>
+    <a class="brand" href="#top">SIMON<small>TALENT HOUSE</small></a>
+    <div class="navlinks"><a href="#about">Our House</a><a href="#founder">Founder</a><a href="#services">What We Do</a><a href="#future">Future Ready Roles</a><a class="pill" href="mailto:hello@lesliesimonrecruiting.com?subject=Inquiry%20to%20Leslie%20Simon">Start a conversation</a></div>
+  </nav>
   <main id="top">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-backdrop">
-        <picture>
-          <source srcset="assets/hero-bg.webp" type="image/webp">
-          <img class="hero-bg" src="assets/hero-bg.jpg" alt="" width="1280" height="720">
-        </picture>
-        <div class="hero-scrim"></div>
-      </div>
-      <div class="hero-copy">
-        <p class="eyebrow"><span class="eyebrow-text">The Global House of Opportunity</span></p>
-        <h1 id="hero-title"><span class="line">Every Window Opens to</span><span class="accent">What’s Next.</span></h1>
-        <p class="hero-sub">One connected world of talent and workforce solutions. Four distinct ways to build stronger teams, expand possibility and prepare your organization for the future.</p>
-        <div class="hero-actions">
-          <a class="btn btn-gold" href="#services">Explore Our Solutions <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h12M11 4.5 16.5 10 11 15.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          <button class="btn btn-outline" id="sound" type="button" aria-pressed="false" aria-controls="theme">
-            <span class="sound-icon icon-play" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M7 4.2v11.6L16.2 10 7 4.2z" fill="currentColor"/></svg></span>
-            <span class="sound-icon icon-pause" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M6 4h3v12H6zM11 4h3v12h-3z" fill="currentColor"/></svg></span>
-            <span class="sound-label">Play the Simon Theme</span>
-          </button>
+    <header class="hero">
+      <img class="hero-art" src="global-house-of-opportunity.png" alt="An elegant gold line-art globe with four windows of opportunity">
+      <div class="rings"></div>
+      <div class="hero-inner">
+        <div class="eyebrow">The global house of opportunity</div>
+        <h1>Every window opens to <span>what's next.</span></h1>
+        <div class="hero-foot">
+          <p class="hero-copy">One connected world of talent and workforce solutions. Four distinct ways to build stronger teams, expand possibility and prepare your organization for the future.</p>
+          <div class="hero-actions"><a class="pill" href="#services">Enter the house</a><button class="sound" id="sound" aria-pressed="false"><span class="sound-icon">▶</span><span>Play the Simon theme</span></button></div>
+          <div class="portal-key" aria-label="Four service windows">
+            <a href="#services"><b>01</b> Executive + Professional Search</a>
+            <a href="#services"><b>02</b> Global Talent Solutions</a>
+            <a href="#future"><b>03</b> Future Ready Roles</a>
+            <a href="#services"><b>04</b> Early Career Programs</a>
+          </div>
         </div>
       </div>
-      <div class="windows">
-        <a class="window" href="#executive-search">
-          <span class="window-photo">
-            <picture>
-              <source srcset="assets/panel-executive.webp" type="image/webp">
-              <img src="assets/panel-executive.jpg" alt="Golden-hour city skyline with the Empire State Building" width="960" height="720">
-            </picture>
-          </span>
-          <span class="window-card">
-            <span class="window-copy">
-              <span class="window-num">01</span>
-              <span class="window-title">Executive + Professional Search</span>
-              <span class="window-text">Finding the right people to drive what’s next for your organization.</span>
-            </span>
-            <span class="window-arrow" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M3 10h12M11 4.5 16.5 10 11 15.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          </span>
-        </a>
-        <a class="window" href="#global-talent">
-          <span class="window-photo">
-            <picture>
-              <source srcset="assets/panel-global.webp" type="image/webp">
-              <img src="assets/panel-global.jpg" alt="Earth at night linked by a glowing network of lights, with the sun on the horizon" width="960" height="720">
-            </picture>
-          </span>
-          <span class="window-card">
-            <span class="window-copy">
-              <span class="window-num">02</span>
-              <span class="window-title">Global Talent Solutions</span>
-              <span class="window-text">Accessing exceptional talent across borders to build stronger, more diverse teams.</span>
-            </span>
-            <span class="window-arrow" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M3 10h12M11 4.5 16.5 10 11 15.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          </span>
-        </a>
-        <a class="window" href="#future">
-          <span class="window-photo">
-            <picture>
-              <source srcset="assets/panel-future.webp" type="image/webp">
-              <img src="assets/panel-future.jpg" alt="Blue sky and clouds with streams of digital light falling through them" width="960" height="720">
-            </picture>
-          </span>
-          <span class="window-card">
-            <span class="window-copy">
-              <span class="window-num">03</span>
-              <span class="window-title">Future Ready Roles</span>
-              <span class="window-text">Helping organizations and individuals thrive in an AI-powered world through workforce strategy, skilling, and human-centered design.</span>
-            </span>
-            <span class="window-arrow" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M3 10h12M11 4.5 16.5 10 11 15.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          </span>
-        </a>
-        <a class="window" href="#early-career">
-          <span class="window-photo">
-            <picture>
-              <source srcset="assets/panel-early.webp" type="image/webp">
-              <img src="assets/panel-early.jpg" alt="Four young people looking over a city and a clock tower at sunset" width="960" height="720">
-            </picture>
-          </span>
-          <span class="window-card">
-            <span class="window-copy">
-              <span class="window-num">04</span>
-              <span class="window-title">Early Career Programs</span>
-              <span class="window-text">Creating meaningful opportunities for the next generation of talent through internships, early career hiring, and development programs.</span>
-            </span>
-            <span class="window-arrow" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M3 10h12M11 4.5 16.5 10 11 15.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          </span>
-        </a>
-      </div>
-    </section>
+    </header>
     <div class="ticker" aria-hidden="true"><div><span><b>◆</b>Executive Search</span><span><b>◆</b>Global Talent Solutions</span><span><b>◆</b>Future Ready Roles</span><span><b>◆</b>Early Career Programs</span><span><b>◆</b>Executive Search</span><span><b>◆</b>Global Talent Solutions</span><span><b>◆</b>Future Ready Roles</span><span><b>◆</b>Early Career Programs</span></div></div>
 
     <section class="intro" id="about">
@@ -343,22 +94,22 @@
 
     <section class="services" id="services">
       <div class="services-head reveal"><h2>Four ways we build.</h2><p>Distinct capabilities. One trusted partner. Every solution is shaped around your business, culture and next chapter.</p></div>
-      <article class="service reveal" id="executive-search">
-          <h3>Executive +<br>Professional Search</h3><p>High-touch search for leaders and professionals who fit the role, the culture and the moment. We look beyond the résumé to find the person who will create lasting impact.<br><a href="mailto:hello@lesliesimonrecruiting.com?subject=Executive%20Search">Discuss a search <span class="arrow" aria-hidden="true"></span></a></p></article>
-      <article class="service reveal" id="global-talent">
-          <h3>Global Talent<br>Solutions</h3><p>Build high-performing international teams with intention, not simply for cost savings. We connect companies with skilled global talent while protecting quality, communication and cultural fit.<br><a href="mailto:hello@lesliesimonrecruiting.com?subject=Global%20Talent%20Solutions">Explore global talent <span class="arrow" aria-hidden="true"></span></a></p></article>
       <article class="service reveal">
-          <h3>Future Ready<br>Roles</h3><p>Redesign roles and organizations for meaningful human + AI collaboration. We translate change into practical job descriptions, workflows and workforce structures built for what comes next.<br><a href="#future">See the future-ready approach <span class="arrow" aria-hidden="true"></span></a></p></article>
-      <article class="service reveal" id="early-career">
-          <h3>Early Career +<br>Internship Programs</h3><p>Build a strategic pipeline of emerging talent. From program design and campus strategy to selection and conversion, we turn internships into a genuine business advantage.<br><a href="mailto:hello@lesliesimonrecruiting.com?subject=Early%20Career%20Programs">Build your pipeline <span class="arrow" aria-hidden="true"></span></a></p></article>
+          <h3>Executive +<br>Professional Search</h3><p>High-touch search for leaders and professionals who fit the role, the culture and the moment. We look beyond the résumé to find the person who will create lasting impact.<br><a href="mailto:hello@lesliesimonrecruiting.com?subject=Executive%20Search">Discuss a search →</a></p></article>
+      <article class="service reveal">
+          <h3>Global Talent<br>Solutions</h3><p>Build high-performing international teams with intention, not simply for cost savings. We connect companies with skilled global talent while protecting quality, communication and cultural fit.<br><a href="mailto:hello@lesliesimonrecruiting.com?subject=Global%20Talent%20Solutions">Explore global talent →</a></p></article>
+      <article class="service reveal">
+          <h3>Future Ready<br>Roles</h3><p>Redesign roles and organizations for meaningful human + AI collaboration. We translate change into practical job descriptions, workflows and workforce structures built for what comes next.<br><a href="#future">See the future-ready approach →</a></p></article>
+      <article class="service reveal">
+          <h3>Early Career +<br>Internship Programs</h3><p>Build a strategic pipeline of emerging talent. From program design and campus strategy to selection and conversion, we turn internships into a genuine business advantage.<br><a href="mailto:hello@lesliesimonrecruiting.com?subject=Early%20Career%20Programs">Build your pipeline →</a></p></article>
     </section>
 
     <section class="future" id="future">
-      <div class="future-copy reveal"><div class="section-label">A signature Simon Talent House service</div><h2>The future of work needs a new blueprint.</h2><p>Future Ready Roles helps leaders rethink how work gets done before they simply add AI to yesterday's job descriptions. We define what technology can carry, where human judgment matters most, and how each role can become more valuable.</p><a class="text-link" href="mailto:hello@lesliesimonrecruiting.com?subject=Future%20Ready%20Roles">Explore a pilot for your organization <span class="arrow" aria-hidden="true"></span></a></div>
+      <div class="future-copy reveal"><div class="section-label">A signature Simon Talent House service</div><h2>The future of work needs a new blueprint.</h2><p>Future Ready Roles helps leaders rethink how work gets done before they simply add AI to yesterday's job descriptions. We define what technology can carry, where human judgment matters most, and how each role can become more valuable.</p><a class="text-link" href="mailto:hello@lesliesimonrecruiting.com?subject=Future%20Ready%20Roles">Explore a pilot for your organization →</a></div>
       <div class="future-card reveal"><small>Future Ready Roles</small><h3>Human judgment.<br>AI capability.<br>Better work.</h3><p>Role analysis · Future-ready job descriptions · Department blueprints · Interview guides · Change-ready talent strategy</p><div class="stamp">A Simon Talent House offering</div></div>
     </section>
 
-    <section class="proof" id="insights">
+    <section class="proof">
       <div class="reveal"><strong>360°</strong><span>business, brand and talent perspective</span></div>
       <div class="reveal"><strong>4</strong><span>integrated workforce capabilities under one roof</span></div>
       <div class="reveal"><strong>1:1</strong><span>senior-level attention on every engagement</span></div>
@@ -372,19 +123,13 @@
     </section>
   </main>
   <footer><span>© 2026 Simon Talent House</span><span>Founded by <span class="nowrap">Leslie Simon</span> · Denver, Colorado</span></footer>
-  <audio id="theme" preload="none"><source src="simon-talent-house-theme.mp3" type="audio/mpeg"></audio>
+  <audio id="theme" preload="metadata"><source src="simon-talent-house-theme.mp3" type="audio/mpeg"></audio>
   <script>
-    const observer=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('in')),{threshold:.12});
-    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-    const btn=document.getElementById('sound'),track=document.getElementById('theme'),label=btn.querySelector('.sound-label');
-    function setPlaying(playing){btn.setAttribute('aria-pressed',String(playing));label.textContent=playing?'Pause the Simon Theme':'Play the Simon Theme'}
+    const observer=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('in')),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+    const btn=document.getElementById('sound'),track=document.getElementById('theme'),icon=btn.querySelector('.sound-icon'),label=btn.querySelector('span:last-child');
+    function setPlaying(playing){btn.setAttribute('aria-pressed',playing);icon.textContent=playing?'Ⅱ':'▶';label.textContent=playing?'Pause “Built for What’s Next”':'Play the Simon theme'}
     btn.addEventListener('click',async()=>{if(track.paused){try{await track.play();setPlaying(true)}catch(e){setPlaying(false)}}else{track.pause();setPlaying(false)}});
     track.addEventListener('ended',()=>{track.currentTime=0;setPlaying(false)});
-    const toggle=document.getElementById('nav-toggle'),nav=document.getElementById('site-nav');
-    function setNav(open){nav.classList.toggle('is-open',open);toggle.setAttribute('aria-expanded',open?'true':'false');toggle.setAttribute('aria-label',open?'Close menu':'Open menu')}
-    toggle.addEventListener('click',()=>setNav(toggle.getAttribute('aria-expanded')!=='true'));
-    nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setNav(false)));
-    document.addEventListener('keydown',e=>{if(e.key==='Escape')setNav(false)});
   </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3e3b74dfd65e671',t:'MTc4OTkzNzU2OA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
