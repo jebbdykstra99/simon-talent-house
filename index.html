@@ -293,31 +293,51 @@
     .hero-actions { margin-top: 30px; }
 
     .offerings {
+      --band-ink: #101828;
+      --band-rule: rgba(92, 61, 16, .42);
+      position: relative;
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      background: linear-gradient(180deg, #f6f1e8 0%, var(--cream) 100%);
+      overflow: hidden;
+      background: linear-gradient(180deg, #f3d78a 0%, #e8c15e 34%, #e0b14c 68%, #d4a242 100%);
       scroll-margin-top: 12px;
     }
+    .offerings-sheen {
+      position: absolute;
+      left: -6%;
+      right: -6%;
+      bottom: -6px;
+      height: 96px;
+      pointer-events: none;
+      z-index: 0;
+      opacity: .9;
+      filter: blur(4px);
+    }
+    .offerings-sheen svg { width: 100%; height: 100%; display: block; }
     .offering {
+      position: relative;
+      z-index: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding: 52px 28px 56px;
-      color: var(--ink);
-      border-right: 1px solid var(--line);
+      padding: 54px 28px 78px;
+      color: var(--band-ink);
+      border-right: 1px solid var(--band-rule);
       min-width: 0;
     }
-    .offering:last-child { border-right: 0; }
+    .offering:last-of-type { border-right: 0; }
     .offering:hover .offering-icon,
-    .offering:focus-visible .offering-icon { transform: translateY(-2px); color: #9a7433; }
-    .offering:hover h3,
-    .offering:focus-visible h3 { color: #8a6230; }
+    .offering:focus-visible .offering-icon { transform: translateY(-2px); }
+    .offering:focus-visible {
+      outline: 2px solid var(--band-ink);
+      outline-offset: -6px;
+    }
     .offering-icon {
-      width: 42px;
-      height: 42px;
-      color: var(--gold-deep);
-      transition: transform .2s ease, color .2s ease;
+      width: 52px;
+      height: 52px;
+      color: var(--band-ink);
+      transition: transform .2s ease;
     }
     .offering-icon svg { width: 100%; height: 100%; display: block; }
     .offering h3 {
@@ -326,28 +346,29 @@
       align-items: center;
       justify-content: flex-start;
       min-height: 4.4em;
-      margin: 18px 0 0;
+      margin: 16px 0 0;
       font-family: var(--sans);
       font-size: 13px;
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: .13em;
       line-height: 1.4;
       text-transform: uppercase;
-      color: #1b2a44;
+      color: var(--band-ink);
     }
     .offering h3::after {
       content: "";
       width: 36px;
-      height: 1px;
+      height: 1.5px;
       margin-top: auto;
-      background: var(--gold-deep);
+      background: var(--band-ink);
     }
     .offering p {
       max-width: 24ch;
       margin: 16px 0 0;
       font-size: 15px;
+      font-weight: 500;
       line-height: 1.45;
-      color: var(--taupe);
+      color: var(--band-ink);
     }
 
     section { padding: 108px clamp(22px, 6vw, 96px); scroll-margin-top: 18px; }
@@ -622,9 +643,9 @@
     }
     @media (max-width: 860px) {
       .offerings { grid-template-columns: 1fr 1fr; }
-      .offering { border-bottom: 1px solid var(--line); }
-      .offering:nth-child(2n) { border-right: 0; }
-      .offering:nth-last-child(-n+2) { border-bottom: 0; }
+      .offering { border-bottom: 1px solid var(--band-rule); }
+      .offering:nth-of-type(even) { border-right: 0; }
+      .offering:nth-last-of-type(-n+2) { border-bottom: 0; }
       .offering h3 { min-height: 4.6em; }
     }
     @media (max-width: 720px) {
@@ -650,7 +671,9 @@
       .hero h1 { font-size: clamp(2.7rem, 12.4vw, 3.7rem); }
       .hero-sub { font-size: 1rem; }
       .offerings { grid-template-columns: 1fr 1fr; }
-      .offering { padding: 32px 16px 36px; }
+      .offering { padding: 34px 16px 48px; }
+      .offering:nth-last-of-type(-n+2) { padding-bottom: 72px; }
+      .offering-icon { width: 46px; height: 46px; }
       .offering h3 { font-size: 11px; letter-spacing: .08em; min-height: 4.8em; }
       .offering p { font-size: 13.5px; }
       section { padding: 76px 22px; }
@@ -721,7 +744,7 @@
       <h2 id="offerings-title" class="visually-hidden">Our solutions</h2>
       <a class="offering" href="#service-executive">
         <span class="offering-icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="24" cy="15" r="4"/>
             <path d="M15.5 33.5c.9-4.6 4-6.8 8.5-6.8s7.6 2.2 8.5 6.8"/>
             <circle cx="11.5" cy="18" r="3"/>
@@ -735,7 +758,7 @@
       </a>
       <a class="offering" href="#service-global">
         <span class="offering-icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="24" cy="24" r="12"/>
             <ellipse cx="24" cy="24" rx="5.5" ry="12"/>
             <path d="M12 24h24M14.2 18.2h19.6M14.2 29.8h19.6"/>
@@ -746,7 +769,7 @@
       </a>
       <a class="offering" href="#future">
         <span class="offering-icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
             <path d="M24 8.5 40 17 24 25.5 8 17Z"/>
             <path d="M8 23.2 24 31.7 40 23.2"/>
             <path d="M8 29.4 24 37.9 40 29.4"/>
@@ -757,7 +780,7 @@
       </a>
       <a class="offering" href="#service-early">
         <span class="offering-icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
             <path d="M6 20 24 11l18 9-18 9Z"/>
             <path d="M14 23.2V31c0 2.6 4.2 6 10 6s10-3.4 10-6v-7.8"/>
             <path d="M42 20v10"/>
@@ -767,6 +790,13 @@
         <h3>Early Career +<br>Internship<br>Programs</h3>
         <p>Develop tomorrow’s talent and create lasting opportunity.</p>
       </a>
+      <div class="offerings-sheen" aria-hidden="true">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none" focusable="false">
+          <path d="M-40 78 C 220 48, 420 102, 680 74 S 1040 36, 1280 78 1520 96 1560 70" fill="none" stroke="#fff6dc" stroke-width="7" stroke-linecap="round"/>
+          <path d="M-40 98 C 260 78, 520 114, 800 96 S 1140 74, 1480 104" fill="none" stroke="#fffdf6" stroke-width="4" stroke-linecap="round"/>
+          <path d="M0 62 C 340 96, 640 40, 980 72 S 1280 108, 1440 64" fill="none" stroke="#ffe8b4" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </div>
     </section>
 
     <section class="intro" id="about">
