@@ -686,6 +686,7 @@
       .reveal { opacity: 1; transform: none; transition: none; }
       .nav-toggle span, .offering-icon, .btn { transition: none; }
     }
+      .sound[hidden] { display: none !important; }
   </style>
   <noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
 </head>
@@ -831,19 +832,19 @@
       </div>
       <article class="service reveal" id="service-executive">
         <h3>Executive + Professional Search</h3>
-        <p>High-touch search for leaders and professionals who fit the role, the culture and the moment. We look beyond the résumé to find the person who will create lasting impact.<br><a class="text-link" href="mailto:hello@lesliesimonrecruiting.com?subject=Executive%20Search">Discuss a search →</a></p>
+        <p>High-touch search for leaders and professionals who fit the role, the culture and the moment. We look beyond the résumé to find the person who will create lasting impact.</p>
       </article>
       <article class="service reveal" id="service-global">
         <h3>Global Talent Solutions</h3>
-        <p>Build high-performing international teams with intention, not simply for cost savings. We connect companies with skilled global talent while protecting quality, communication and cultural fit.<br><a class="text-link" href="mailto:hello@lesliesimonrecruiting.com?subject=Global%20Talent%20Solutions">Explore global talent →</a></p>
+        <p>Build high-performing international teams with intention, not simply for cost savings. We connect companies with skilled global talent while protecting quality, communication and cultural fit.</p>
       </article>
       <article class="service reveal" id="service-future">
         <h3>Future Ready Roles</h3>
-        <p>Redesign roles and organizations for meaningful human + AI collaboration. We translate change into practical job descriptions, workflows and workforce structures built for what comes next.<br><a class="text-link" href="#future">See the future-ready approach →</a></p>
+        <p>Redesign roles and organizations for meaningful human + AI collaboration. We translate change into practical job descriptions, workflows and workforce structures built for what comes next.</p>
       </article>
       <article class="service reveal" id="service-early">
         <h3>Early Career + Internship Programs</h3>
-        <p>Build a strategic pipeline of emerging talent. From program design and campus strategy to selection and conversion, we turn internships into a genuine business advantage.<br><a class="text-link" href="mailto:hello@lesliesimonrecruiting.com?subject=Early%20Career%20Programs">Build your pipeline →</a></p>
+        <p>Build a strategic pipeline of emerging talent. From program design and campus strategy to selection and conversion, we turn internships into a genuine business advantage.</p>
       </article>
     </section>
 
@@ -852,7 +853,6 @@
         <div class="section-label">A signature Simon Talent House service</div>
         <h2>The future of work needs a new blueprint.</h2>
         <p>Future Ready Roles helps leaders rethink how work gets done before they simply add AI to yesterday’s job descriptions. We define what technology can carry, where human judgment matters most, and how each role can become more valuable.</p>
-        <a class="text-link" href="mailto:hello@lesliesimonrecruiting.com?subject=Future%20Ready%20Roles">Explore a pilot for your organization →</a>
       </div>
       <div class="future-card reveal">
         <small>Future Ready Roles</small>
@@ -878,7 +878,8 @@
 
   <footer>
     <span>© 2026 Simon Talent House</span>
-    <button class="sound" id="sound" type="button" aria-pressed="false" aria-controls="theme">
+    <!-- Theme song button hidden until the track is ready. To unhide, delete the hidden attribute below. -->
+    <button class="sound" id="sound" type="button" hidden aria-pressed="false" aria-controls="theme">
       <span class="sound-icon" aria-hidden="true">▶</span>
       <span class="sound-label">Play the Simon theme</span>
     </button>
